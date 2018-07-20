@@ -1,0 +1,191 @@
+.top{
+	height:115px;
+    /*border:1px solid #F00*/
+}
+
+.middle{
+    width: 2000px;
+	height:790px;
+    /*border:1px solid #ffdf05;*/
+}
+.left{
+	width:200px;
+	height:705px;
+    padding-top: 2px;
+    float: left;
+    /*border:1px solid #F00*/
+}
+.right{
+	width:1700px;
+	height:765px;
+	float:left;
+    padding-top: 1px;
+    /*border:1px solid #F00*/
+}
+
+#Head_1 {
+    background: url("/static/teac_style/images/img/top_head1_bg.gif") repeat-x scroll 0 0 transparent;
+    height: 64px;
+    margin: 0 auto;
+    width: 100%;
+}
+#Head_1 #Head_1_Logo {
+	float: left;
+    left: 20px;
+    position: absolute;
+    top: 12px;
+	color: #F1F9FE;
+    font-family: "宋体";
+    font-size: 28px;
+}
+#Head_1 #Head_1_UserWelcome {
+    float: right;
+    color: #B3E1FF;
+    font-family: "宋体";
+    font-size: 12px;
+    height: 25px;
+	padding-top: 11px;
+	margin-right: 20px;
+}
+#Head_1 #Head_1_FunctionButton {
+    float: left;
+    position: absolute;
+    right: 5px;
+    top: 35px;
+	margin-right: 15px;
+}
+#Head_1 #Head_1_FunctionButton img {
+margin-left: 10px;
+}
+#Head_2 {
+   background: url("/static/teac_style/images/img/top_head2_bg.gif") repeat-x scroll 0 0 transparent;
+    border-bottom: 1px solid #FFFFFF;
+    border-top: 1px solid #A0C6E1;
+    height: 36px;
+    margin: 0;
+    width: 100%;
+}
+#Head_2 #Head2_Awoke {
+	float: left;
+    height: 100%;
+    padding-left: 19px;
+    padding-top: 2px;
+}
+#Head_2 #Head2_Awoke #AwokeNum {
+	position: absolute;
+	left: 20px;
+	top: 68px;	
+	width: 406px;
+	/*height: 21px;*/
+	margin-top: 0;
+	padding: 0;
+	padding-top: 2px;
+	list-style-type: none;
+	margin-bottom: 0;
+	margin-left: 0;
+}
+#Head_2 #Head2_Awoke #AwokeNum li {
+  float: left;
+    margin: 3px;
+	display: inline;
+}
+#Head_2 #Head2_Awoke #AwokeNum a {
+   color: #FFFFFF;
+    font-family: "宋体";
+    font-size: 12px;
+    text-decoration: none;
+}
+#Head_2 #Head2_Awoke #AwokeNum .Line {
+    border-left: 1px solid #005A98;
+    border-right: 1px solid #A0C6E1;
+    height: 17px;
+    width: 0px;
+}
+#Head_2 #Head2_FunctionList, .Head2_FunctionList {
+    color: #FFFFFF;
+    float: right;
+    font-family: "宋体";
+    font-size: 13px;
+    height: 100%;
+    padding-right: 26px;
+    padding-top: 10px;
+}
+
+
+#Menu {
+    margin: 0;
+    padding: 0;
+    width: 155px;
+	background: none repeat scroll 0 0 #D8EBF7;
+    list-style: none outside none;
+	
+	margin-left: 3px;
+	border-top: 3px solid #4891C6;
+}
+#Menu .level1 {
+ color: #005790;
+    font-weight: bold;
+    padding-bottom: 1px;
+	  cursor: pointer;
+}
+#Menu .level1 .level1Style {
+  background: url("/static/teac_style/images/img/menu_btn_bg.gif") no-repeat scroll 0 0 transparent;
+    height: 23px;
+    padding-left: 20px;
+    padding-top: 5px;
+    width: 135px;
+	margin-bottom: -4px
+}
+#Menu .level1 .level1Style .Icon {
+	margin-top: -2px;
+}
+#Menu .level1 .MenuLevel2 {
+ background: none repeat scroll 0 0 #D8EBF7;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+#Menu .level1 .MenuLevel2 .level2Style{
+	color: #005790;
+    font-weight: normal;
+	border-top: 1px solid #EFF6FB;
+	height: 18px;
+	padding-left: 43px;
+	padding-top: 5px;
+	width: 112px;
+	background-image:url('/static/teac_style/images/img/menu_arrow_single.gif');
+	background-color: #8EC4E9;
+	background-repeat: no-repeat;
+	background-position: 29px center;
+}
+.STYLE2 {
+	font-size: 18px
+}
+
+.STYLE1 {
+	color: #333333;
+    align-content: center;
+}
+
+#StatusBar {
+			 background-color: #4386B7;
+			border-top: 1px solid #FFFFFF;
+			height: 19px;
+			width: 100%;
+		}
+		#StatusBar #StatusBar_Links {
+			color: #A9DCFF;
+			float: left;
+			font-family: "宋体";
+			font-size: 12px;
+			padding-left: 20px;
+			padding-top: 3px;
+		}
+		#StatusBar #StatusBar_Right {
+			color: #A9DCFF;
+			float: right;
+			font-family: "宋体";
+			font-size: 12px;
+			padding-right: 20px;
+			padding-top: 4px;
+		}

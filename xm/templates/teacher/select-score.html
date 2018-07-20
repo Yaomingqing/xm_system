@@ -1,0 +1,91 @@
+{% extends 'teacher/base.html'%}
+
+{% block user %}
+
+<strong>{{teacher.tea_name}}</strong>
+{% endblock user %}
+
+{% block menu %}
+
+            <h2>授课安排</h2>
+  			  <li class="level2 level2Style"> <a  href="/teach_info/{{teacher.tea_id}}/">授课信息</a></li>
+	          <li class="level2 level2Style"><a  href="/stu_info/{{teacher.tea_id}}/">学生情况</a></li>
+  			<h2>成绩管理</h2>
+               	<li class="level2 level2Style"><a  href="/usual_score/{{teacher.tea_id}}/">平时成绩</a></li>
+               	<li class="level2 level2Style"><a  href="/exam_score/{{teacher.tea_id}}/">考试成绩</a></li>
+            <h2>成绩查询</h2>
+                <li class="level2 level2Style"><a href="/score_search/{{teacher.tea_id}}/">成绩查询</a></li>
+{% endblock menu %}
+
+
+{% block mainstu %}
+
+<!-- 页面标题 -->
+	<div id="TitleArea">
+		<div id="TitleArea_Head"></div>
+		<div id="TitleArea_Title">
+			<div id="TitleArea_Title_Content">
+				<img border="0" width="13" height="13"
+					src="/static/teac_style/images/title_arrow.gif" /> 总成绩表
+			</div>
+		</div>
+		<div id="TitleArea_End"></div>
+	</div>
+
+	<!-- 主内容区域（数据列表或表单显示） -->
+    <div id="QueryArea">
+	<form action="/score_search2/{{teacher.tea_id}}/" method="get">
+		<input type="hidden" name="method" value="search">
+        <select  name="cname" id="cname">
+        <option>请选择授课名称</option><!--这里要从数据库提取，但我们不会用ajax-->
+			{% for name in names%}
+            <option>{{name}}</option>
+            {%endfor%}
+        </select>
+        <select  name="class" id="class">
+        <option>请选择授课班级</option><!--这里要从数据库提取，但我们不会用ajax-->
+            {%for class in classes%}
+            <option>{{class}}</option>
+            {%endfor%}
+        </select>
+		<input type="submit" value="搜索">
+	</form>
+</div>
+	<div id="MainArea">
+		<table class="MainArea_Content" align="center" cellspacing="0" cellpadding="0">
+			<!-- 表头-->
+			<thead>
+				<tr align="center" valign="middle" id="TableTitle">
+					<td>学号</td>
+                    <td>姓名</td>
+					<td>专业</td>
+                    <td>年级</td>
+					<td >课程名称</td>
+                    <td>平时成绩</td>
+                    <td>考试成绩</td>
+                    <td>总评成绩</td>
+			  </tr>
+			</thead>
+			<!--显示数据列表 -->
+			<tbody id="TableData">
+            {%for stu in allstu%}
+			<tr class="TableDetail1">
+				<td>{{stu.stu_id}}</td>
+				<td>{{stu.stu_name}}</td>
+				<td>{{stu.stu_major}}</td>
+			  	<td>{{stu.stu_grade}}</td>
+                <td>{{stu.sel_cour_name}}</td>
+                <td>{{stu.us_scor}}</td>
+                <td>{{stu.exam_score}}</td>
+                <td>{{stu.tota_score}}</td>
+			 	<td>
+                </td>
+            {%endfor%}
+			</tbody>
+		</table>
+		<!-- 其他功能超链接 -->
+		<div id="TableTail" align="center">
+		</div>
+	</div>
+
+{% endblock mainstu %}

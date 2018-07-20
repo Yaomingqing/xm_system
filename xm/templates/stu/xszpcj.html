@@ -1,0 +1,100 @@
+{% extends 'stu/base.html' %}
+
+{% block user %}
+
+<strong>{{stu.stu_name}}</strong>
+{% endblock user %}
+
+{% block menu%}
+
+<li class="level2 level2Style">
+                    <a href="/xspscj/{{stu.stu_id}}/">平时成绩</a>
+				</li>
+                <li class="level2 level2Style">
+                	<a href="/xskscj/{{stu.stu_id}}/">考试成绩</a>
+				</li>
+                <li class="level2 level2Style">
+                	<a href="/xszpcj/{{stu.stu_id}}/">总评成绩</a>
+				</li>
+                <li class="level2 level2Style">
+                	<a href="/xsxkxx/{{stu.stu_id}}/">选课信息</a>
+				</li>
+
+{% endblock menu%}
+
+{% block mainstu %}
+
+
+    <!-- 页面标题 -->
+<div id="TitleArea">
+	<div id="TitleArea_Head"></div>
+	<div id="TitleArea_Title">
+		<div id="TitleArea_Title_Content">
+			<img border="0" width="13" height="13" src="/static/stu_style/images/title_arrow.gif"/> 总评成绩
+		</div>
+    </div>
+	<div id="TitleArea_End"></div>
+</div>
+
+
+	<!-- 过滤条件 -->
+	<div id="QueryArea">
+        <form action="/xszpcj2/{{stu.stu_id}}/" method="get">
+	      <label>请选择需要查询的学期
+	      <select name="select" id="select2">
+			  <option>---请选择---</option>
+              {% for seme in semester%}
+              <option>{{seme}}</option>
+              {%endfor%}
+          </select>
+	      </label>
+        <label>
+		  <input type="submit" name="button" id="button" value="查询">
+		</label>
+		  <label>平均分
+		  <input type="text" name="textfield" id="textfield1" value={{avg}} align="center" readonly>
+		  </label>
+          <label>绩点
+		  <input type="text" name="textfield" id="textfield2" value="{{credits}}" readonly>
+		  </label>
+
+        </form>
+</div>
+<!-- 主内容区域（数据列表或表单显示） -->
+<div id="MainArea">
+    <table class="MainArea_Content" align="center" cellspacing="0" cellpadding="0">
+        <!-- 表头-->
+        <thead>
+            <tr align="center" valign="middle" id="TableTitle">
+				<td>学号</td>
+				<td>姓名</td>
+				<td>专业</td>
+				<td>班级</td>
+                <td>课程名称</td>
+				<td>平时成绩</td>
+                <td>考试成绩</td>
+                <td>总成绩</td>
+			</tr>
+		</thead>
+		<!--显示数据列表 -->
+        <tbody id="TableData" align="center">
+            {% for stu in performance%}
+			<tr class="TableDetail1">
+				<td>{{stu.stu_id}}&nbsp;</td>
+				<td>{{stu.stu_name}}&nbsp;</td>
+				<td>{{stu.stu_major}}&nbsp;</td>
+				<td>{{stu.stu_class}}&nbsp;</td>
+                <td>{{stu.sel_cour_name}}&nbsp;</td>
+				<td>{{stu.us_scor}}&nbsp;</td>
+                <td>{{stu.exam_score}}&nbsp;</td>
+                <td>{{stu.tota_score}}&nbsp;</td>
+			</tr>
+            {% endfor%}
+        </tbody>
+    </table>
+
+   <!-- 其他功能超链接 -->
+
+</div>
+
+{% endblock mainstu%}

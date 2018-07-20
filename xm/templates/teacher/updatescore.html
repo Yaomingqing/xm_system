@@ -1,0 +1,96 @@
+{% extends 'teacher/base.html'%}
+
+{% block user %}
+
+<strong>{{teacher.tea_name}}</strong>
+{% endblock user %}
+
+{% block menu %}
+
+            <h2>授课安排</h2>
+  			  <li class="level2 level2Style"> <a  href="/teach_info/{{teacher.tea_id}}/">授课信息</a></li>
+	          <li class="level2 level2Style"><a  href="/stu_info/{{teacher.tea_id}}/">学生情况</a></li>
+  			<h2>成绩管理</h2>
+               	<li class="level2 level2Style"><a  href="/usual_score/{{teacher.tea_id}}/">平时成绩</a></li>
+               	<li class="level2 level2Style"><a  href="/exam_score/{{teacher.tea_id}}/">考试成绩</a></li>
+            <h2>成绩查询</h2>
+                <li class="level2 level2Style"><a href="/score_search/{{teacher.tea_id}}/">成绩查询</a></li>
+{% endblock menu %}
+
+
+{% block mainstu %}
+
+<!-- 页面标题 -->
+<div id="TitleArea">
+	<div id="TitleArea_Head"></div>
+	<div id="TitleArea_Title">
+		<div id="TitleArea_Title_Content">
+
+
+					<img border="0" width="13" height="13" src="/static/teac_style/images/title_arrow.gif"/> 修改成绩
+
+
+
+		</div>
+    </div>
+	<div id="TitleArea_End"></div>
+</div>
+
+
+<!-- 主内容区域（数据列表或表单显示） -->
+<div id="MainArea">
+	<!-- 表单内容 -->
+	<form action="#" method="post">
+
+		<!-- 本段标题（分段标题） -->
+		<div class="ItemBlock_Title">
+        	<img width="4" height="7" border="0" src="/static/teac_style/images/item_point.gif"> 成绩信息&nbsp;
+        </div>
+		<!-- 本段表单字段 -->
+        <div class="ItemBlockBorder">
+            <div class="ItemBlock">
+				<div class="ItemBlock2">
+					<table cellpadding="0" cellspacing="0" class="mainForm">
+						<thead>
+						<tr align="center" valign="middle" id="TableTitle">
+                            <td>学号</td>
+                            <td>姓名</td>
+                            <td>专业</td>
+                            <td>年级</td>
+                            <td>平时成绩</td>
+                            <td>考试成绩</td>
+                            <td>总评成绩</td>
+			  			</tr>
+						</thead>
+
+		<tbody id="TableData">
+
+			<tr class="TableDetail1">
+				<td>2015215001</td>
+				<td>刘天宇</td>
+				<td>信息管理与信息系统</td>
+			  	<td>2015</td>
+				<td align="center"><input type="text"/>
+                <td align="center"><input type="text"/>
+                <td></td>
+               </table>
+				</div>
+            </div>
+        </div>
+		<!-- 表单操作 -->
+		<div id="InputDetailBar">
+
+
+					 <input type="submit" value="提交" class="FunctionButtonInput">
+
+
+
+            <a href="javascript:history.go(-1);" class="FunctionButton">返回</a>
+        </div>
+	</form>
+
+</div>
+
+
+{% endblock mainstu%}
+

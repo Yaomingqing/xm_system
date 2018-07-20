@@ -1,0 +1,40 @@
+{% extends 'stu/base.html' %}
+
+{% block user %}
+
+<strong>{{stu.stu_name}}</strong>
+{% endblock user %}
+
+{% block menu%}
+
+<li class="level2 level2Style">
+                    <a href="/xspscj/{{stu.stu_id}}/">平时成绩</a>
+				</li>
+                <li class="level2 level2Style">
+                	<a href="/xskscj/{{stu.stu_id}}/">考试成绩</a>
+				</li>
+                <li class="level2 level2Style">
+                	<a href="/xszpcj/{{stu.stu_id}}/">总评成绩</a>
+				</li>
+                <li class="level2 level2Style">
+                	<a href="/xsxkxx/{{stu.stu_id}}/">选课信息</a>
+				</li>
+
+{% endblock menu%}
+
+
+{% block mainstu %}
+
+
+    <div class="stutable">
+        <ul>
+				<li class="font"><span>学号</span>:&nbsp;&nbsp;&nbsp;&nbsp; {{stu.stu_id}}</li></br>
+				<li class="font"><span>姓名</span>:&nbsp;&nbsp;&nbsp;&nbsp; {{stu.stu_name}}</li></br>
+				<li class="font"><span>班级</span>:&nbsp;&nbsp;&nbsp;&nbsp; {{stu.stu_class}}</li></br>
+				<li class="font"><span>专业</span>:&nbsp;&nbsp;&nbsp;&nbsp; {{stu.stu_major}}</li></br>
+				<li class="font"><span>院系</span>:&nbsp;&nbsp;&nbsp;&nbsp; {{stu.stu_department}}</li></br>
+				<li class="font"><span>邮箱</span>:&nbsp;&nbsp;&nbsp;&nbsp; {{stu.stu_email}}</li></br>
+			</ul>
+    </div>
+
+{% endblock mainstu%}

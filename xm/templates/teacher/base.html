@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>欢迎使用课程学习成绩考评系统</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="/static/teac_style/js/jquery.js"></script>
+	<script type="text/javascript" src="/static/teac_style/js/page_common.js"></script>
+    <link href="/static/teac_style/css/common_style_blue.css" rel="stylesheet" type="text/css" />
+    <link href="/static/teac_style/css/index_1.css" rel="stylesheet" type="text/css" />
+	<link href="/static/teac_style/css/teacher.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript">
+		// 显示或隐藏二级菜单 
+		function menuClick( menuDiv ){
+			$(".MenuLevel2").not( $(menuDiv).next() ).hide();
+			$(menuDiv).next().toggle();
+		}
+		
+		$(function(){
+			// 默认只显示第1个二级菜单
+			$(".MenuLevel2").hide();
+			$(".MenuLevel2:first").show();
+		});
+	</script>
+
+    <style type="text/css">
+
+    html{
+    width: 100%;
+    }
+    body{
+        width: 100%;
+        background: none repeat scroll 0 0 #D8EDFC;
+        margin: 0;
+        padding: 0;
+    }
+
+    img{
+        vertical-align: inherit;
+        border:0;
+    }
+    a { color:#0d71bb; transition:0.5s; }
+    a:hover { color:blue; }
+
+    </style>
+
+
+</head>
+<body>
+    <div class='top' >
+        <!-- 上部 -->
+        <div id="Head_1">
+            <!-- 标题 -->
+            <div id="Head_1_Logo">课程成绩评定系统2.0
+                <!-- <img border="0" src="style/images/logo.png" /> -->
+            </div>
+            <!-- 欢迎用户的文字 -->
+            <div id="Head_1_UserWelcome">
+                <img border="0" width="13" height="14" src="/static/teac_style/images/user.gif" />
+                您好，
+
+                {% block user %}
+
+                {% endblock user%}
+            </div>
+            <!-- 一些链接按钮 -->
+            <div id="Head_1_FunctionButton">
+                <!--<a target="right" href="javascript:void(0)">-->
+                    <!--<img width="78" height="20" src="/static/teac_style/images/help2.gif" />-->
+                <!--</a>-->
+                <a href="{% url 'xm:index'%}">
+                    <img width="78" height="20" alt="" src="/static/teac_style/images/logout.gif" />
+                </a>
+            </div>
+        </div>
+        <!-- 下部 -->
+        <div id="Head_2">
+            <!-- 任务提醒 -->
+            <div id="Head2_Awoke">
+                <ul id="AwokeNum">
+
+                </ul>
+            </div>
+
+            <div class="Head2_FunctionList" style="float:left">
+                <a href="javascript: window.parent.right.history.back();">
+                    <img src="/static/teac_style/images/Header_back.gif" width="24" height="24" style="margin-top: -10px;"/>
+                    <b>后退</b>
+                </a>
+                <a href="javascript: window.parent.right.history.forward();">
+                    <img src="/static/teac_style/images/Header_forward.gif" width="24" height="24" style="margin-top: -10px;"/>
+                    <b>前进</b>
+                </a>
+            </div>
+
+            <div id="Head2_FunctionList">
+                <!--
+                    如果使用 window.parent.right.location.reload(true); 则IE与FF都可以使用，Chrome不可以。
+                    在Chrome中 alert(window.parent.right.document); 显示的值是 undefined！为什么？
+                    使用 window.parent.right.history.go(0) 实现刷新，在IE、Chrome中都可以运行，但在FF中不可以！（但没有测试什么时候会使用缓存）。
+                 -->
+                <!--<a href="javascript: window.parent.right.history.go(0);">-->
+                    <!--<img src="/static/teac_style/images/Header_refresh.gif" width="24" height="24" style="margin-top: -8px;"/>-->
+            <!--<b>刷新</b></a></div>-->
+            </div>
+
+        </div>
+    </div>
+
+    <div class='middle'>
+        <div class='left' >
+            <ul id="Menu">
+            <li class="level1">
+                <div onClick="menuClick(this);" class="level1Style">
+                    <img src="/static/teac_style/images/func20001.gif" class="Icon" />
+                    系统菜单
+                </div>
+            <ul class="MenuLevel2">
+                {% block menu%}
+                {% endblock menu%}
+
+                <!--<h2>授课安排</h2>-->
+                  <!--<li class="level2 level2Style"> <a target="right" href="course-info.html">授课信息</a></li>-->
+                  <!--<li class="level2 level2Style"><a target="right" href="student-info.html">学生情况</a></li>-->
+                <!--<h2>成绩管理</h2>-->
+                    <!--<li class="level2 level2Style"><a target="right" href="us-score.html">平时成绩</a></li>-->
+                    <!--<li class="level2 level2Style"><a target="right" href="exam-score.html">考试成绩</a></li>-->
+                <!--<li><a href="select-score.html" target="right"><h2>成绩查询</h2></a></li>-->
+            </ul>
+            </ul>
+
+        </div>
+
+
+        <div class='right'>
+            {% block mainstu %}
+
+            {% endblock mainstu %}
+
+        </div>
+    </div>
+
+    <div class='bottom'>
+        <div id="StatusBar">
+        <!-- 链接 -->
+        <div id="StatusBar_Links">
+            <a href="http://www.cuit.edu.cn" target="_blank">成都信息工程大学</a>
+        </div>
+        <!-- 右侧功能按钮 -->
+        <div id="StatusBar_Right">
+            <!-- 版本 -->
+            <a href="javascript:void(0)">
+                <img border="0" width="11" height="11" src="/static/teac_style/images/info.gif" />
+                <img border="0" width="40" height="11" src="/static/teac_style/images/version.gif" />
+            </a>
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>
