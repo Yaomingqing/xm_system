@@ -79,8 +79,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'xm',
         'USER': 'xm',
-        'PASSWORD': 'YMQing1994@xm',
-        'HOST': '120.79.62.21',
+        'PASSWORD': '123456',
+        'HOST': '0.0.0.0',
         'PORT': '3306'
     }
 }
